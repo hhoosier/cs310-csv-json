@@ -82,6 +82,7 @@ public class Converter {
                     jsonobject.put(headings[i], record[i]);
                 }
                 records.add(jsonobject);
+                
             }
             jsonString = JSONValue.toJSONString(records);
         }        
@@ -94,13 +95,19 @@ public class Converter {
     public static String jsonToCsv(String jsonString) {
         
         String results = "";
-        
+        JSONObject output = null;
         try {
 
             StringWriter writer = new StringWriter();
             CSVWriter csvWriter = new CSVWriter(writer, ',', '"', '\n');
             
-            // INSERT YOUR CODE HERE
+            output = new JSONObject();
+            
+            JSONArray records = new JSONArray();
+            records.add(csvWriter);
+            records.add(output);
+            
+            System.out.println(records);
             
         }
         
